@@ -1,19 +1,113 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Инструктор по педикюру — обучение и мастер-классы</title>
-  <meta name="description" content="Обучение педикюру для мастеров и начинающих: техника, безопасность, работа с клиентом.">
+  <meta name="description"
+    content="Обучение педикюру для мастеров и начинающих: техника, безопасность, работа с клиентом.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Karla:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    html[data-custom-bg] body {
+      background: var(--user-bg);
+    }
+
+    html[data-custom-bg] .section-alt {
+      background: color-mix(in srgb, var(--user-bg) 78%, #1c1917 22%);
+    }
+
+    html[data-custom-bg] .site-header {
+      background: color-mix(in srgb, var(--user-bg) 88%, transparent);
+    }
+
+    html[data-custom-bg][data-theme="dark"] .section-alt {
+      background: color-mix(in srgb, var(--user-bg) 70%, #000 30%);
+    }
+
+    .bg-picker {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .bg-picker-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    input[type="color"].bg-color-input {
+      width: 38px;
+      height: 32px;
+      padding: 2px;
+      border: 1px solid rgba(28, 25, 23, 0.18);
+      border-radius: 8px;
+      cursor: pointer;
+      background: var(--cream, #fff);
+    }
+
+    html[data-theme="dark"] input[type="color"].bg-color-input {
+      border-color: rgba(245, 242, 237, 0.25);
+    }
+
+    .bg-picker-reset {
+      padding: 0.35rem 0.5rem;
+      font-size: 0.8rem;
+      font-family: inherit;
+      font-weight: 600;
+      border: 1px solid rgba(28, 25, 23, 0.15);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--ink-muted);
+      cursor: pointer;
+    }
+
+    html[data-theme="dark"] .bg-picker-reset {
+      border-color: rgba(245, 242, 237, 0.2);
+    }
+
+    .bg-picker-reset:hover {
+      color: var(--ink);
+      border-color: var(--accent, #6b7f6a);
+    }
+
+    .bg-presets {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .bg-swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 1px rgba(28, 25, 23, 0.15);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    html[data-theme="dark"] .bg-swatch {
+      box-shadow: 0 0 0 1px rgba(245, 242, 237, 0.2);
+    }
+  </style>
 </head>
+
 <body>
   <div class="welcome-banner" id="welcomeBanner" role="status" aria-live="polite" hidden>
     <div class="wrap welcome-inner">
-      <p class="welcome-text">Добро пожаловать! Здесь кратко о курсах и как с нами связаться — листайте или воспользуйтесь меню.</p>
+      <p class="welcome-text">Добро пожаловать! Здесь кратко о курсах и как с нами связаться — листайте или
+        воспользуйтесь меню.</p>
       <button type="button" class="welcome-close" id="welcomeClose" aria-label="Закрыть приветствие">Понятно</button>
     </div>
   </div>
@@ -29,7 +123,26 @@
         <a href="#contact">Контакты</a>
       </nav>
       <div class="header-tools">
-        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема оформления">
+        <div class="bg-picker">
+          <span class="bg-picker-label" id="bgPickerLabel">Фон</span>
+          <div class="bg-presets" role="group" aria-labelledby="bgPickerLabel">
+            <button type="button" class="bg-swatch" data-hex="#e8f0e4" style="background:#e8f0e4" title="Светло-зелёный"
+              aria-label="Фон: светло-зелёный"></button>
+            <button type="button" class="bg-swatch" data-hex="#ede8f4" style="background:#ede8f4" title="Лаванда"
+              aria-label="Фон: лаванда"></button>
+            <button type="button" class="bg-swatch" data-hex="#f4ebe8" style="background:#f4ebe8" title="Персик"
+              aria-label="Фон: персик"></button>
+            <button type="button" class="bg-swatch" data-hex="#e8f2f6" style="background:#e8f2f6" title="Небо"
+              aria-label="Фон: небесный"></button>
+            <button type="button" class="bg-swatch" data-hex="#f5f0e6" style="background:#f5f0e6" title="Крем"
+              aria-label="Фон: кремовый"></button>
+          </div>
+          <input type="color" class="bg-color-input" id="bgColorPick" value="#f6f3ef" aria-label="Свой цвет фона"
+            title="Свой цвет">
+          <button type="button" class="bg-picker-reset" id="bgColorReset" title="Стандартный фон темы">Сброс</button>
+        </div>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему"
+          title="Тема оформления">
           <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
           <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
         </button>
@@ -46,7 +159,8 @@
         <div class="hero-text">
           <p class="eyebrow">Инструктор по педикюру</p>
           <h1>Спокойное обучение без лишней суеты</h1>
-          <p class="lead">Разбираем технику, стерильность и комфорт клиента — чтобы вы уверенно работали в салоне или на себя.</p>
+          <p class="lead">Разбираем технику, стерильность и комфорт клиента — чтобы вы уверенно работали в салоне или на
+            себя.</p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">Записаться на консультацию</a>
             <a href="#programs" class="btn btn-ghost">Смотреть программы</a>
@@ -68,7 +182,9 @@
       <div class="wrap two-col">
         <div>
           <h2>О преподавателе</h2>
-          <p class="muted">Меня зовут <strong>Анна</strong> — я мастер-инструктор по педикюру. Веду занятия для тех, кто только начинает, и для практикующих специалистов, которым важно выровнять базу и ускорить работу без потери качества.</p>
+          <p class="muted">Меня зовут <strong>Анна</strong> — я мастер-инструктор по педикюру. Веду занятия для тех, кто
+            только начинает, и для практикующих специалистов, которым важно выровнять базу и ускорить работу без потери
+            качества.</p>
           <ul class="checklist">
             <li>Медицински корректный уход и безопасная обработка инструментов</li>
             <li>Аппаратный и комбинированный педикюр</li>
@@ -76,7 +192,8 @@
           </ul>
         </div>
         <blockquote class="pullquote">
-          <p>«Хороший педикюр — это не только красивые ногти, но и предсказуемый, бережный результат для кожи и ногтевого ложа.»</p>
+          <p>«Хороший педикюр — это не только красивые ногти, но и предсказуемый, бережный результат для кожи и
+            ногтевого ложа.»</p>
         </blockquote>
       </div>
     </section>
@@ -88,7 +205,8 @@
         <div class="cards">
           <article class="card">
             <h3>Базовый курс</h3>
-            <p>Анатомия стопы, подготовка, техника снятия и обработки, покрытие. Практика на моделях под сопровождением.</p>
+            <p>Анатомия стопы, подготовка, техника снятия и обработки, покрытие. Практика на моделях под сопровождением.
+            </p>
             <span class="card-meta">от 24 академических часов</span>
           </article>
           <article class="card">
@@ -128,27 +246,35 @@
         <p class="section-intro">Короткие ответы — подробности обсудим при записи.</p>
         <div class="faq" id="faqList">
           <div class="faq-item">
-            <button type="button" class="faq-trigger" id="faq-btn-0" aria-expanded="false" aria-controls="faq-panel-0">Нужен ли опыт до курса?</button>
+            <button type="button" class="faq-trigger" id="faq-btn-0" aria-expanded="false"
+              aria-controls="faq-panel-0">Нужен ли опыт до курса?</button>
             <div class="faq-panel" id="faq-panel-0" role="region" aria-labelledby="faq-btn-0" hidden>
-              <p>Для базового курса опыт не обязателен. Если вы уже работаете, на старте скорректируем программу под ваш уровень.</p>
+              <p>Для базового курса опыт не обязателен. Если вы уже работаете, на старте скорректируем программу под ваш
+                уровень.</p>
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-trigger" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1">Что взять с собой на занятия?</button>
+            <button type="button" class="faq-trigger" id="faq-btn-1" aria-expanded="false"
+              aria-controls="faq-panel-1">Что взять с собой на занятия?</button>
             <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" hidden>
-              <p>Список расходников и инструмента пришлю после записи — часть материалов может быть на площадке, уточним индивидуально.</p>
+              <p>Список расходников и инструмента пришлю после записи — часть материалов может быть на площадке, уточним
+                индивидуально.</p>
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-trigger" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">Можно ли только онлайн?</button>
+            <button type="button" class="faq-trigger" id="faq-btn-2" aria-expanded="false"
+              aria-controls="faq-panel-2">Можно ли только онлайн?</button>
             <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" hidden>
-              <p>Теорию и разбор кейсов можно вести дистанционно; отработка техники на модели обычно очная или в смешанном формате.</p>
+              <p>Теорию и разбор кейсов можно вести дистанционно; отработка техники на модели обычно очная или в
+                смешанном формате.</p>
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-trigger" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">Как записаться?</button>
+            <button type="button" class="faq-trigger" id="faq-btn-3" aria-expanded="false"
+              aria-controls="faq-panel-3">Как записаться?</button>
             <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" hidden>
-              <p>Напишите в форме ниже или в мессенджер — укажите желаемый курс и удобное время для короткого звонка.</p>
+              <p>Напишите в форме ниже или в мессенджер — укажите желаемый курс и удобное время для короткого звонка.
+              </p>
             </div>
           </div>
         </div>
@@ -160,7 +286,8 @@
         <div class="cta-row">
           <div>
             <h2>Связаться</h2>
-            <p class="cta-text">Напишите в мессенджер или на почту — отвечу в течение рабочего дня и пришлю программу и стоимость.</p>
+            <p class="cta-text">Напишите в мессенджер или на почту — отвечу в течение рабочего дня и пришлю программу и
+              стоимость.</p>
           </div>
           <div class="cta-links">
             <a class="contact-pill" href="mailto:hello@example.com">hello@example.com</a>
@@ -172,21 +299,26 @@
           <form class="contact-form" id="contactForm" novalidate>
             <div class="form-row">
               <label class="form-label" for="contactName">Имя</label>
-              <input class="form-input" type="text" id="contactName" name="name" autocomplete="name" required minlength="2" placeholder="Как к вам обращаться">
+              <input class="form-input" type="text" id="contactName" name="name" autocomplete="name" required
+                minlength="2" placeholder="Как к вам обращаться">
               <span class="form-error" id="contactNameErr" role="alert"></span>
             </div>
             <div class="form-row">
               <label class="form-label" for="contactEmail">Электронная почта</label>
-              <input class="form-input" type="email" id="contactEmail" name="email" autocomplete="email" required placeholder="you@example.com">
+              <input class="form-input" type="email" id="contactEmail" name="email" autocomplete="email" required
+                placeholder="you@example.com">
               <span class="form-error" id="contactEmailErr" role="alert"></span>
             </div>
             <div class="form-row">
               <label class="form-label" for="contactMsg">Сообщение</label>
-              <textarea class="form-input form-textarea" id="contactMsg" name="message" required minlength="10" rows="4" placeholder="Курс, уровень, удобное время связи"></textarea>
+              <textarea class="form-input form-textarea" id="contactMsg" name="message" required minlength="10" rows="4"
+                placeholder="Курс, уровень, удобное время связи"></textarea>
               <span class="form-error" id="contactMsgErr" role="alert"></span>
             </div>
             <button type="submit" class="btn btn-submit" id="contactSubmit">Отправить заявку</button>
-            <p class="form-success" id="formSuccess" tabindex="-1" hidden>Спасибо! Сообщение принято — свяжусь с вами по указанной почте. Пока сервер не подключён, письмо можно продублировать на почту или в мессенджер вручную.</p>
+            <p class="form-success" id="formSuccess" tabindex="-1" hidden>Спасибо! Сообщение принято — свяжусь с вами по
+              указанной почте. Пока сервер не подключён, письмо можно продублировать на почту или в мессенджер вручную.
+            </p>
           </form>
         </div>
       </div>
@@ -201,5 +333,64 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    (function () {
+      var STORAGE_BG = "pedicureSchoolBg";
+      var root = document.documentElement;
+      var pick = document.getElementById("bgColorPick");
+      var resetBtn = document.getElementById("bgColorReset");
+
+      function normalizeHex(hex) {
+        var c = (hex || "").trim();
+        if (/^#[0-9a-f]{6}$/i.test(c)) return c.toLowerCase();
+        if (/^#[0-9a-f]{3}$/i.test(c)) {
+          return "#" + c[1] + c[1] + c[2] + c[2] + c[3] + c[3];
+        }
+        return "#f6f3ef";
+      }
+
+      function applyBg(hex) {
+        var h = normalizeHex(hex);
+        root.style.setProperty("--user-bg", h);
+        root.setAttribute("data-custom-bg", "");
+        if (pick) pick.value = h;
+        try {
+          localStorage.setItem(STORAGE_BG, h);
+        } catch (e) { }
+      }
+
+      function clearBg() {
+        root.style.removeProperty("--user-bg");
+        root.removeAttribute("data-custom-bg");
+        if (pick) pick.value = "#f6f3ef";
+        try {
+          localStorage.removeItem(STORAGE_BG);
+        } catch (e) { }
+      }
+
+      if (pick) {
+        pick.addEventListener("input", function () {
+          applyBg(pick.value);
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener("click", clearBg);
+      }
+
+      document.querySelectorAll(".bg-swatch").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var hex = btn.getAttribute("data-hex");
+          if (hex) applyBg(hex);
+        });
+      });
+
+      try {
+        var saved = localStorage.getItem(STORAGE_BG);
+        if (saved) applyBg(saved);
+      } catch (e) { }
+    })();
+  </script>
 </body>
+
 </html>
