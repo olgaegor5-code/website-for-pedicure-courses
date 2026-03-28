@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Инструктор по педикюру — обучение и мастер-классы</title>
+  <meta name="description" content="Обучение педикюру для мастеров и начинающих: техника, безопасность, работа с клиентом.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="welcome-banner" id="welcomeBanner" role="status" aria-live="polite" hidden>
+    <div class="wrap welcome-inner">
+      <p class="welcome-text">Добро пожаловать! Здесь кратко о курсах и как с нами связаться — листайте или воспользуйтесь меню.</p>
+      <button type="button" class="welcome-close" id="welcomeClose" aria-label="Закрыть приветствие">Понятно</button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#" class="logo">Педикюр<span class="logo-dot">.</span>школа</a>
+      <nav class="nav" id="nav">
+        <a href="#about">О преподавателе</a>
+        <a href="#programs">Программы</a>
+        <a href="#format">Формат</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <div class="header-tools">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема оформления">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Инструктор по педикюру</p>
+          <h1>Спокойное обучение без лишней суеты</h1>
+          <p class="lead">Разбираем технику, стерильность и комфорт клиента — чтобы вы уверенно работали в салоне или на себя.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Записаться на консультацию</a>
+            <a href="#programs" class="btn btn-ghost">Смотреть программы</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="hero-card-inner">
+            <span class="hero-stat">10+</span>
+            <span class="hero-stat-label">лет практики</span>
+            <span class="hero-divider"></span>
+            <span class="hero-stat">с нуля</span>
+            <span class="hero-stat-label">и повышение квалификации</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap two-col">
+        <div>
+          <h2>О преподавателе</h2>
+          <p class="muted">Меня зовут <strong>Анна</strong> — я мастер-инструктор по педикюру. Веду занятия для тех, кто только начинает, и для практикующих специалистов, которым важно выровнять базу и ускорить работу без потери качества.</p>
+          <ul class="checklist">
+            <li>Медицински корректный уход и безопасная обработка инструментов</li>
+            <li>Аппаратный и комбинированный педикюр</li>
+            <li>Разбор типичных ошибок и сложных случаев</li>
+          </ul>
+        </div>
+        <blockquote class="pullquote">
+          <p>«Хороший педикюр — это не только красивые ногти, но и предсказуемый, бережный результат для кожи и ногтевого ложа.»</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="programs">
+      <div class="wrap">
+        <h2>Программы</h2>
+        <p class="section-intro">Выберите формат под ваш уровень — можно начать с короткого интенсива.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Базовый курс</h3>
+            <p>Анатомия стопы, подготовка, техника снятия и обработки, покрытие. Практика на моделях под сопровождением.</p>
+            <span class="card-meta">от 24 академических часов</span>
+          </article>
+          <article class="card">
+            <h3>Аппаратный педикюр</h3>
+            <p>Настройка фрез, скорости и направления. Работа с мозолями и огрубевшей кожей без травм.</p>
+            <span class="card-meta">мини-курс / надстройка</span>
+          </article>
+          <article class="card">
+            <h3>Мастер-класс «1 день»</h3>
+            <p>Один запрос: например, идеальные углы, скорость приёма или работа со сложной пластиной.</p>
+            <span class="card-meta">индивидуально или мини-группа</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="format">
+      <div class="wrap two-col reverse">
+        <div class="format-list">
+          <h2>Как проходят занятия</h2>
+          <ol class="steps">
+            <li><strong>Знакомство.</strong> Уточняем цели и текущий уровень.</li>
+            <li><strong>Теория короткими блоками</strong> — сразу закрепляем на практике.</li>
+            <li><strong>Разбор ваших работ</strong> — фото и видео до/после приветствуются.</li>
+            <li><strong>Шпаргалки и чек-листы</strong> остаются у вас после курса.</li>
+          </ol>
+        </div>
+        <div class="format-aside">
+          <p>Онлайн-теория и очная практика возможны в смешанном формате — напишите, что вам удобнее.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+      <div class="wrap">
+        <h2>Частые вопросы</h2>
+        <p class="section-intro">Короткие ответы — подробности обсудим при записи.</p>
+        <div class="faq" id="faqList">
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" id="faq-btn-0" aria-expanded="false" aria-controls="faq-panel-0">Нужен ли опыт до курса?</button>
+            <div class="faq-panel" id="faq-panel-0" role="region" aria-labelledby="faq-btn-0" hidden>
+              <p>Для базового курса опыт не обязателен. Если вы уже работаете, на старте скорректируем программу под ваш уровень.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1">Что взять с собой на занятия?</button>
+            <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" hidden>
+              <p>Список расходников и инструмента пришлю после записи — часть материалов может быть на площадке, уточним индивидуально.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">Можно ли только онлайн?</button>
+            <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" hidden>
+              <p>Теорию и разбор кейсов можно вести дистанционно; отработка техники на модели обычно очная или в смешанном формате.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">Как записаться?</button>
+            <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" hidden>
+              <p>Напишите в форме ниже или в мессенджер — укажите желаемый курс и удобное время для короткого звонка.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band" id="contact">
+      <div class="wrap cta-stack">
+        <div class="cta-row">
+          <div>
+            <h2>Связаться</h2>
+            <p class="cta-text">Напишите в мессенджер или на почту — отвечу в течение рабочего дня и пришлю программу и стоимость.</p>
+          </div>
+          <div class="cta-links">
+            <a class="contact-pill" href="mailto:hello@example.com">hello@example.com</a>
+            <a class="contact-pill" href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
+            <a class="contact-pill" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <label class="form-label" for="contactName">Имя</label>
+              <input class="form-input" type="text" id="contactName" name="name" autocomplete="name" required minlength="2" placeholder="Как к вам обращаться">
+              <span class="form-error" id="contactNameErr" role="alert"></span>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="contactEmail">Электронная почта</label>
+              <input class="form-input" type="email" id="contactEmail" name="email" autocomplete="email" required placeholder="you@example.com">
+              <span class="form-error" id="contactEmailErr" role="alert"></span>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="contactMsg">Сообщение</label>
+              <textarea class="form-input form-textarea" id="contactMsg" name="message" required minlength="10" rows="4" placeholder="Курс, уровень, удобное время связи"></textarea>
+              <span class="form-error" id="contactMsgErr" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-submit" id="contactSubmit">Отправить заявку</button>
+            <p class="form-success" id="formSuccess" tabindex="-1" hidden>Спасибо! Сообщение принято — свяжусь с вами по указанной почте. Пока сервер не подключён, письмо можно продублировать на почту или в мессенджер вручную.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Педикюр.школа</span>
+      <span class="footer-note">Замените контакты в разметке и при необходимости подключите бэкенд для формы.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
